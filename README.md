@@ -1,12 +1,18 @@
-## My Project Title
-
+## Applied Statistics project 
+Winter semester 2022 at Hochschule der Medien in Stuttgart, Germany
 
 ---
 
 ### Project description
 
-*Your description here*
+The motivation is to formulate a hypothesis which can be answered using a linear regression model.
 
+The goal for this is to use statistical methods together with machine learning models in python to inspect the relation of two numeric variables. To achieve this, we need to formulate a use case with a predictor and a response variable.
+
+* The ideas can be found in the *topic-ideas* notebook.
+* The *project-proposal* shows the use case.
+* The model is built in *draft-analysis*.
+* *report* contains the final conclusion
 
 ---
 
