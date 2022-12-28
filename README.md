@@ -16,6 +16,10 @@ The goal for this is to use statistical methods together with machine learning m
 
 ---
 
+License
+This project is licensed with LGPL. For more information checkl the "License" file.
+
+---
 ### Project structure
 
 
