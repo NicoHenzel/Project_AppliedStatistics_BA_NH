@@ -800,7 +800,7 @@ timestamp = datetime.datetime.fromtimestamp(ts).strftime('_%Y-%m-%d-%H_%M_%S')
 
 joblib.dump(reg_lin, "../models/reg_lin_model.pkl" + timestamp )
 joblib.dump(reg_las, "../models/reg_las_model.pkl" + timestamp )
-joblib.dump(reg_poly, "../models/reg_las_model.pkl" + timestamp )
+joblib.dump(reg_poly, "../models/reg_poly_model.pkl" + timestamp )
 ```
 
 # Results
@@ -941,7 +941,7 @@ Since removing would lead to our dataset to be cut by over half, that is not a v
 
 First lets take a look at the summary statistics for the median household income and its distribution.
 
-## Summary Statistics
+### Summary Statistics
 
 ```{python}
 # Dataframe with only median household income as column
@@ -973,6 +973,7 @@ df_imputation.info()
 ```
 
 ```{python}
+#| echo: true
 # Scatterplot income over years before imputation
 scatter_income_before = alt.Chart(df_imputation).mark_circle(size=60).encode(
     x=alt.X('year', 
@@ -990,6 +991,8 @@ scatter_income_before
 ```
 
 ```{python}
+#| echo: true
+
 # Boxplot over all income values before imputation
 box_income_before = alt.Chart(df_household_income).mark_boxplot(size = 50).encode(
     x=alt.X('median_household_income', scale = alt.Scale(zero = False)),
@@ -1007,7 +1010,7 @@ The median is found at 56350 $ and with an IQR at 12950  there are no outliers p
 
 Also the values for the years 1999, 2001-2004, 2006-2009, 2011 & 2012 are missing.
 
-## Imputed dataset
+### Imputed dataset
 
 Let us take a look what the imputation has done for the missing values and how we can use the result:
 
@@ -1040,6 +1043,8 @@ df_income.plot(kind='kde', figsize=(8, 5), title='Distribution of median househo
 Plot
 
 ```{python}
+#| echo: true
+
 # Scatterplot income over years after imputation
 scatter_income_after = alt.Chart(imputed_scaled).mark_circle(size=60).encode(
     x=alt.X('year', 
@@ -1058,6 +1063,8 @@ alt.vconcat(scatter_income_before, scatter_income_after)
 ```
 
 ```{python}
+#| echo: true
+
 # Boxplot over all income values after imputation
 box_income_after = alt.Chart(imputed_scaled).mark_boxplot(size = 50).encode(
     x=alt.X('median_household_income', scale = alt.Scale(zero = False)),
@@ -1089,7 +1096,9 @@ The scatterplots for the relation between median household income and age-adjust
 <a id='additional_exploration'></a>
 
 ```{python}
+#| echo: true
 #| tags: [Hide Code]
+
 Chart_CLRD=alt.Chart(df_imputation).mark_circle(size=60).encode(
     alt.X('median_household_income', scale = alt.Scale(zero = False)),
     alt.Y('age_adjusted_death_rate' , scale = alt.Scale(zero = False)),
@@ -1262,10 +1271,10 @@ alt.Chart(df_imputation).mark_circle().encode(
 )
 ```
 
-Also for additional analysis:
-How is the household income developing year by year in the different states? Are there high variances? Is there a relationship to the death rates?
-
 ```{python}
+#| echo: true
+
+
 alt.Chart(df_imputation).mark_bar(opacity=0.7).encode(
     x='cause_name:O',
     y=alt.Y('age_adjusted_death_rate:Q', stack=None),
@@ -1452,12 +1461,20 @@ plot_las
 
 ## Further ideas for visualizations and analysis
 
-Further analysis: How is the median income distributed year by year in South Dakoka?
+Further analysis:
+
+- How is the median income distributed year by year in South Dakoka?
+
+- How is the household income developing year by year in the different states? Are there high variances? Is there a relationship to the death rates?
+
 
 The following models could be interesting, because the models we have choosen were not ideal:
-* Bayesian Regression
-* Decision Tree Regression, mainly xgboost
-* Gradient Descent Regression
+ 
+- Bayesian Regression
+
+- Decision Tree Regression, mainly xgboost
+
+- Gradient Descent Regression
 
 In order to find the best performing model, they could be compared using a specific metric (e.g. R², Mean Squared Error or Mean Absolute Error). 
 
