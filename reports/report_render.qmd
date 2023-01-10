@@ -137,7 +137,6 @@ df
 ### Import data
 
 ```{python}
-#| echo:true
 # Declare variables
 external_data = '..\\data\\external\\'
 raw_data = '..\\data\\raw\\'
