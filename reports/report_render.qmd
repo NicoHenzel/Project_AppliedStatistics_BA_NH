@@ -2,7 +2,7 @@
 title : "Report"
 subtitle: "Applied Statistics course HdM 2023"
 execute:
-  echo: false # show code
+  echo: false # hide code
 format: 
   html: # output format
     embed-resources: true # create a self-contained html
