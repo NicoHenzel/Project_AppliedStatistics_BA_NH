@@ -1,1 +1,1 @@
-# Project Idead and Proposal
+# Project Ideas and Proposal
