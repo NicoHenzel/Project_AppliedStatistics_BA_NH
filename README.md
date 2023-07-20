@@ -43,6 +43,6 @@ This project is licensed with LGPL. For more information checkl the "License" fi
 ├── reports            <- Generated analysis as HTML, PDF, etc.
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
-├── requirements       <- The requirements file for reproducing the analysis environment, e.g. a `environment.yml` file
+└── requirements       <- The requirements file for reproducing the analysis environment, e.g. a `environment.yml` file
 
 ```    
